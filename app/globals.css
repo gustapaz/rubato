@@ -1,0 +1,495 @@
+@import "./base.css";
+@font-face {
+  font-family: Display;
+  src: url("/fonts/display.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+:root {
+  --focus: #f68b8b;
+}
+body {
+  background: #1c171a;
+  color: #f4e2cd;
+  font:
+    14px/1.6 Display,
+    Arial,
+    sans-serif;
+}
+a {
+  text-decoration: none;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  justify-content: space-between;
+  padding: 22px 3vw;
+  border-bottom: 1px solid #f4e2cd44;
+}
+.brand {
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+.brand span {
+  font: 8px Mono;
+  letter-spacing: 0.13em;
+  margin-left: 24px;
+}
+header > a:not(.brand) {
+  font: 9px Mono;
+}
+.turntable {
+  position: relative;
+  height: 820px;
+  min-height: 80vh;
+  max-height: 1100px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 40%, #56323866, transparent 65%);
+}
+.turntable-top {
+  position: absolute;
+  z-index: 2;
+  left: 3vw;
+  right: 3vw;
+  top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  pointer-events: none;
+}
+.turntable h1 {
+  font-size: clamp(35px, 4.3vw, 65px);
+  line-height: 1.03;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  margin: 15px 0;
+}
+.turntable h1 em {
+  font-family: Georgia;
+  font-weight: 400;
+  color: #e96a77;
+}
+.turntable-top p {
+  text-align: right;
+  font: 11px/1.6 Mono;
+}
+.turntable canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+.side-label {
+  position: absolute;
+  z-index: 1;
+  left: 3vw;
+  top: 55%;
+  font: 8px Mono;
+  letter-spacing: 0.1em;
+  transform: rotate(-90deg);
+  transform-origin: left;
+}
+.disc-labels {
+  position: absolute;
+  bottom: 100px;
+  left: 3vw;
+  right: 3vw;
+  display: flex;
+  justify-content: space-between;
+  font: 8px Mono;
+}
+.disc-labels span:first-child {
+  color: #e96a77;
+}
+.playback {
+  position: absolute;
+  bottom: 25px;
+  left: 3vw;
+  right: 3vw;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.playback button {
+  background: #ed6875;
+  color: #1c171a;
+  border: 0;
+  border-radius: 50px;
+  padding: 17px 28px;
+  font-size: 13px;
+}
+.playback > span {
+  font: 10px/1.6 Mono;
+  max-width: 330px;
+}
+.playback label {
+  margin-left: auto;
+  font: 9px Mono;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.playback input {
+  accent-color: #ed6875;
+  max-width: 150px;
+  height: 30px;
+}
+#score {
+  padding: 35px 4vw 45px;
+  background: #e8d7bf;
+  color: #2b2328;
+}
+.score-head {
+  display: flex;
+  justify-content: space-between;
+  font: 9px Mono;
+  letter-spacing: 0.1em;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #2b232866;
+}
+.knobs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px 4vw;
+  margin-top: 30px;
+}
+.knobs label {
+  font-size: 12px;
+}
+.knobs label > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.knobs output {
+  font: 18px Mono;
+}
+.knobs input {
+  display: block;
+  width: 100%;
+  height: 32px;
+  accent-color: #a9384b;
+  margin-top: 10px;
+}
+.knobs select {
+  display: block;
+  background: none;
+  color: inherit;
+  border: 0;
+  border-bottom: 1px solid;
+  padding: 10px 0;
+  width: 100%;
+  border-radius: 0;
+}
+.knobs .calculate {
+  background: #2b2328;
+  color: #e8d7bf;
+  border: 0;
+  padding: 14px 24px;
+  align-self: end;
+  font-size: 12px;
+}
+.status {
+  font: 11px/1.7 Mono;
+  min-height: 26px;
+  color: #793141;
+}
+.presets {
+  display: flex;
+  gap: 25px;
+}
+.presets button {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #2b232866;
+  color: inherit;
+  padding: 7px 0;
+  font-size: 11px;
+}
+.notation {
+  margin: 32px 0 40px;
+  border-block: 1px solid #2b232866;
+  padding: 24px 0;
+}
+.notation > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  font: 20px Mono;
+}
+.notation span {
+  font: 11px Mono;
+  margin-right: 15px;
+}
+.notation b {
+  font-size: clamp(7px, 1.3vw, 20px);
+  font-weight: 400;
+}
+.notation .rest {
+  opacity: 0.45;
+}
+.notation > div:first-child .hit {
+  color: #ab3448;
+}
+.notation small {
+  font: 9px Mono;
+  display: block;
+  margin-top: 15px;
+}
+.pressing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10vw;
+}
+.pressing > div > span {
+  font: 9px Mono;
+}
+.pressing label {
+  display: block;
+  font-size: 11px;
+  margin-top: 18px;
+}
+.pressing input {
+  display: block;
+  width: 100%;
+  background: none;
+  color: inherit;
+  border: 0;
+  border-bottom: 1px solid #2b232877;
+  padding: 11px 0;
+  font-size: 27px;
+  letter-spacing: -1px;
+}
+.pressing button {
+  background: none;
+  color: inherit;
+  border: 1px solid #2b232866;
+  padding: 12px 17px;
+  font-size: 11px;
+  margin: 14px 10px 6px 0;
+}
+.pressing small {
+  display: block;
+  font: 9px/1.8 Mono;
+  max-width: 380px;
+}
+.pressing-tools {
+  padding-top: 20px;
+}
+.pressing-tools a {
+  display: block;
+  text-decoration: underline;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.pressing details {
+  font-size: 11px;
+  margin-top: 20px;
+}
+.pressing details button {
+  display: block;
+  border: 0;
+  padding: 5px 0;
+}
+.listening {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9vw;
+  padding: 80px 7vw;
+  align-items: center;
+}
+.listening figure {
+  margin: 0;
+}
+.listening img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 50% 50% 8px 8px;
+}
+.listening figcaption {
+  font: 8px/1.7 Mono;
+  margin-top: 15px;
+  color: #d0beb4;
+}
+.listening > div > span {
+  font: 9px Mono;
+}
+.listening h2 {
+  font-size: clamp(60px, 6vw, 95px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.listening h2 em {
+  font-family: Georgia;
+  color: #e96a77;
+}
+.listening p {
+  font-size: 14px;
+  color: #d0beb4;
+  max-width: 400px;
+}
+footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 28px 3vw;
+  border-top: 1px solid #f4e2cd44;
+  font-size: 11px;
+}
+footer strong {
+  font-size: 32px;
+  letter-spacing: -1px;
+  font-weight: 500;
+}
+footer button {
+  margin-left: auto;
+  background: none;
+  color: inherit;
+  border: 1px solid #f4e2cd66;
+  padding: 10px;
+  font-size: 10px;
+}
+@media (max-width: 760px) {
+  header {
+    padding: 20px;
+  }
+  .brand {
+    font-size: 35px;
+  }
+  .brand span {
+    display: none;
+  }
+  header > a:last-child {
+    display: none;
+  }
+  .turntable {
+    height: 730px;
+    min-height: 0;
+  }
+  .turntable-top {
+    left: 22px;
+    right: 22px;
+    top: 20px;
+  }
+  .turntable h1 {
+    font-size: 40px;
+  }
+  .turntable-top p {
+    font-size: 8px;
+  }
+  .turntable canvas {
+    height: 80%;
+    top: 90px;
+  }
+  .side-label {
+    left: 20px;
+    font-size: 7px;
+  }
+  .disc-labels {
+    left: 22px;
+    right: 22px;
+    bottom: 135px;
+    font-size: 7px;
+  }
+  .playback {
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .playback button {
+    font-size: 11px;
+    padding: 13px 22px;
+  }
+  .playback > span {
+    font-size: 8px;
+    max-width: 160px;
+  }
+  .playback label {
+    margin: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .playback input {
+    max-width: 210px;
+  }
+  #score {
+    padding: 25px 22px;
+  }
+  .score-head {
+    font-size: 7px;
+    gap: 15px;
+  }
+  .knobs {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  .knobs label {
+    font-size: 11px;
+  }
+  .knobs output {
+    font-size: 16px;
+  }
+  .knobs .calculate {
+    grid-column: 1/-1;
+  }
+  .presets {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .presets button {
+    font-size: 10px;
+  }
+  .notation > div {
+    gap: 1px;
+  }
+  .notation b {
+    font-size: clamp(5px, 2vw, 10px);
+  }
+  .notation span {
+    margin-right: 7px;
+  }
+  .pressing {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .pressing-tools {
+    padding: 0;
+  }
+  .listening {
+    grid-template-columns: 1fr;
+    padding: 55px 25px;
+    gap: 30px;
+  }
+  .listening img {
+    height: 400px;
+  }
+  .listening h2 {
+    font-size: 70px;
+    margin: 30px 0;
+  }
+  .listening p {
+    max-width: none;
+  }
+  footer {
+    padding: 22px;
+  }
+  footer button {
+    margin: 0;
+  }
+}
+@media (min-width: 761px) {
+  .turntable {
+    height: calc(100svh - 96px);
+    min-height: 590px;
+    max-height: 950px;
+  }
+}
