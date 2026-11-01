@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-01",
+  "demo": "https://rubato-gustapaz.starrylinen.chatgpt.site",
+  "application_commit": "b8bf2fb3f37637df2bc98cda75cb88c22405aa63",
+  "automated_tests": 23,
+  "public_smoke": "passed",
+  "browser_flow": "passed",
+  "responsive_widths": [
+    390,
+    768
+  ],
+  "export": {
+    "filename": "rubato.mid",
+    "bytes": 259,
+    "sha256": "108ad3ed893a57e3f97adfb23bddc39641f1a7d5aff210ca6035bb478ea686f1",
+    "structure": "passed"
+  }
+}
